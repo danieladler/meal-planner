@@ -1,6 +1,6 @@
 <h1>MEAL PLANNER</h1>
 
-<ul class="week-list">
+<!-- <ul class="week-list">
    <% @weeks.each do |w| %>
      <li> Week of Year: <%= w.week_of_year %> </li>
        <ul class="days-of-week-list">
@@ -20,4 +20,18 @@
        </ul>
      <br>
   <% end  %>
-</ul>
+</ul> -->
+
+<!-- Modified from Railscast #213 -->
+<div id="recipes">
+  <%= calendar @date do |date| %>
+    <%= date.day %>
+    <% if @recipes_by_date[date] %>
+      <ul>
+        <% @recipes_by_date[date].each do |recipe| %>
+          <li><%= recipe.name %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  <% end %>
+</div>
