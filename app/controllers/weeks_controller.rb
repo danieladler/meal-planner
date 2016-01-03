@@ -5,7 +5,7 @@ class WeeksController < ApplicationController
 
     # Modified from Railscast #213
     @recipes = Recipe.all
-    @recipes_by_date = @recipes.group_by(&:day_id)
+    @recipes_by_date = @recipes.group_by(&:date)
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
     # raise
   end
