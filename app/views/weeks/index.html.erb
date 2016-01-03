@@ -5,7 +5,17 @@
      <li> Week of Year: <%= w.week_of_year %> </li>
        <ul class="days-of-week-list">
          <% w.days.each do |d| %>
-         <li><%= d.date.strftime("%A") + " - " + d.date.strftime("%m/%d")%></li>
+          <li>day id <%=d.id %> : <%=d.date.strftime("%A") + " - " + d.date.strftime("%m/%d")%></li>
+            <ul class="recipes-of-day-list">
+              <% d.recipes.each do |r| %>
+                <li><%= r.name %></li>
+                  <ul class="ingredeints-of-recipe-list">
+                    <% r.ingredients.each do |i| %>
+                      <li><%=i.name + ": " + i.quantity.to_s + i.unit%></li>
+                    <% end %>
+                  </ul>
+              <% end %>
+            </ul>
          <% end %>
        </ul>
      <br>
