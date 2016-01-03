@@ -1,1 +1,13 @@
-<h1>TEST</h1>
+<h1>MEAL PLANNER</h1>
+
+<ul class="week-list">
+   <% @weeks.each do |w| %>
+     <li> Week of Year: <%= w.week_of_year %> </li>
+       <ul class="days-of-week-list">
+         <% w.days.each do |d| %>
+         <li><%= d.date.strftime("%A") + " - " + d.date.strftime("%m/%d")%></li>
+         <% end %>
+       </ul>
+     <br>
+  <% end  %>
+</ul>
