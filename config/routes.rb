@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
   root to: "weeks#index"
 
-  get "/" , to: "weeks#index"
+  get "/"              , to: "weeks#index"
 
-  
-
+  get "/days/:id"      , to: "days#show" , as: :show_day
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

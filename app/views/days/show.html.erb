@@ -1,0 +1,13 @@
+<h1>Meal plan for <%= @day.date.strftime("%A, %b %d") %></h1>
+
+<ul class="date-recipe-list">
+  <% @day.recipes.each do |r| %>
+    <li><%= r.name %></li>
+      <ul class="ingredeints-of-recipe-list">
+        <% r.ingredients.each do |i| %>
+          <li><%=i.name + ": " + i.quantity.to_s + i.unit%></li>
+        <% end %>
+      </ul>
+    <br>
+  <% end %>
+</ul>
